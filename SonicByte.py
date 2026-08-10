@@ -206,7 +206,7 @@ class PeerNodeGUI:
                 sha256.update(b)
         file_hash = sha256.hexdigest()
         
-        current_pin = str(random.randint(100000, 999999))
+        current_pin = str(secrets.randbelow(900000) + 100000)
 # Use .after(0, ...) to force the main UI thread to update the text safely
         self.root.after(0, self.display_pin_var.set, f"TELL RECEIVER THIS PIN: {current_pin}")
         
@@ -226,7 +226,7 @@ class PeerNodeGUI:
         
         server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) 
-        server.bind(("0.0.0.0", PORT))
+        server.bind((self.my_ip, PORT))
         
         server.listen(10)
         # --- PATCH 3: Aggressive Connection Timeout ---
