@@ -1,2 +1,55 @@
+# 1. SonicByte App-Specific & Test Artifacts
+# Ignore the folder where received files are saved
 downloads/
+
+# Ignore dummy files and local test payloads
+test_files/
+samples/
+payloads/
+*.tmp
+*.bak
+test_*.*
+dummy_*.*
+sample_*.*
+
+# Ignore recorded/generated audio files from ggwave debugging
+*.wav
+*.raw
+*.pcm
+*.mp3
+
+# Ignore local cryptographic test keys or certificates (if you ever generate them on disk)
+*.pem
+*.key
+*.crt
+
+# 2. Python Bytecode & Virtual Environments
 __pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+
+# 3. Unit Testing & Coverage Reports
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+#  4. Packaging & Distribution (e.g., if you use PyInstaller)
+build/
+dist/
+*.spec
+*.egg-info/
+.eggs/
+
+# 5. IDE & OS Clutter
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+Desktop.ini
